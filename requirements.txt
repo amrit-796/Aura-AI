@@ -1,0 +1,15 @@
+# ── Core (required) ───────────────────────────────────────────────────────
+# Choose ONE of the following API clients based on your provider:
+
+# Option A — OpenAI (default, also works with Ollama / LM Studio)
+openai>=1.30.0
+
+# Option B — Anthropic Claude
+# anthropic>=0.25.0
+
+# ── Optional: transformer-based emotion detection (Tier 2) ────────────────
+# Uncomment these if you want more accurate emotion detection.
+# Requires ~500 MB of model download on first run.
+#
+# transformers>=4.40.0
+# torch>=2.0.0
