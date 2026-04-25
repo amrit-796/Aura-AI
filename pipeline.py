@@ -90,15 +90,17 @@ def run_pipeline(
         logger.debug("stage=memory | turns=%d", len(history))
  
         # ── Stage 6: Response generation ──────────────────────────────────
-        response = _stage_generate(
-            user_input=clean_input,
+        response = generate_response(
+            user_input=user_input,
             emotion=emotion,
-            wisdom=wisdom,
             history=history,
+            philosophy=wisdom,
             safety_status=safety_status,
-            config=config,
         )
+
         logger.debug("stage=generate | response_len=%d", len(response))
+
+        return response
  
         # ── Stage 7: Store turn ───────────────────────────────────────────
         _store_turn(memory_store, session_id, raw_input, response, emotion)
