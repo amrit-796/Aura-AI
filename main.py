@@ -12,7 +12,7 @@ from datetime import datetime
 from emotion_detection import detect_emotion
 from safety_layer import check_safety, SAFE, CRISIS, CONCERNING
 from philosophy_engine import get_wisdom
-from memory_module import ConversationMemory
+from memory_module import MemoryStore
 from response_generator import generate_response
 from utils.display import print_banner, print_assistant, print_user_prompt, print_divider
 from utils.config import load_config
@@ -31,7 +31,7 @@ def chat_loop(config: dict):
       5. Generates a response
       6. Stores the exchange in memory
     """
-    memory = ConversationMemory(max_turns=config.get("max_memory_turns", 10))
+    memory = MemoryStore(max_turns=config.get("max_memory_turns", 10))
     session_start = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     print_banner()
